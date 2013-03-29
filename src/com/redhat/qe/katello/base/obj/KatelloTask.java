@@ -3,9 +3,13 @@ package com.redhat.qe.katello.base.obj;
 import java.util.logging.Logger;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.json.simple.JSONObject;
+import javax.management.Attribute;
+import com.redhat.qe.tools.SSHCommandResult;
 
 public class KatelloTask extends _KatelloObject{
 	protected static Logger log = Logger.getLogger(KatelloTask.class.getName());
+
+	public static final String CMD_TASKSTATUS = "task status";
 
 	@JsonProperty("task_type")
 	public String task_type;
@@ -57,4 +61,13 @@ public class KatelloTask extends _KatelloObject{
 	
 	public KatelloTask(){super();}
 	
+	public KatelloTask(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public SSHCommandResult task_status() {
+		opts.clear();
+		opts.add(new Attribute("uuid", this.uuid));
+		return run(CMD_TASKSTATUS);
+	}
 }
