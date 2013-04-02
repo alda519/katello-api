@@ -9,6 +9,7 @@ import com.redhat.qe.tools.SSHCommandResult;
 
 public class TaskTests extends KatelloCliTestScript {
 
+	//@ TODO 929106
 	@Test(description="task status that does not exist")
     public void test_task_status() {
 		SSHCommandResult res;
