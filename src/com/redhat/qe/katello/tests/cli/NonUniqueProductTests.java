@@ -36,7 +36,7 @@ public class NonUniqueProductTests  extends KatelloCliTestBase{
 		this.org_name = "org"+uid;
 		this.prov_name = "prov"+uid;
 		this.prod_name1 = "prod"+uid;
-		this.prod_name2 = this.prod_name1;
+		this.prod_name2 = "prod2"+uid;
 		this.plan_name = "plan"+uid;
 		this.env_name = "env"+uid;		
 		
